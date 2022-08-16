@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'models/explore_recipe.dart';
-import 'components/components.dart';
+import 'package:fooderlich/screens/explore_screen.dart';
+import 'package:fooderlich/screens/recipe_screen.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -13,37 +13,40 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   static List<Widget> pages = <Widget>[
-    Card1(
-        recipe: ExploreRecipe(
-            authorName: 'Ray Wenderlich',
-            title: 'The Art of Dough',
-            subtitle: 'Editor\'s Choice',
-            message: 'Learn to make the perfect bread.',
-            backgroundImage: 'assets/magazine_pics/card_bread.jpg')),
-    Card2(
-        recipe: ExploreRecipe(
-            authorName: 'Mike Katz',
-            role: 'Smoothie Connoisseur',
-            profileImage: 'assets/profile_pics/person_katz.jpeg',
-            title: 'Recipe',
-            subtitle: 'Smoothies',
-            backgroundImage: 'assets/magazine_pics/mag2.png')),
-    Card3(
-        recipe: ExploreRecipe(
-            title: 'Vegan Trends',
-            tags: [
-              'Healthy',
-              'Vegan',
-              'Carrots',
-              'Greens',
-              'Wheat',
-              'Pescetarian',
-              'Mint',
-              'Lemongrass',
-              'Salad',
-              'Water'
-            ],
-            backgroundImage: 'assets/magazine_pics/mag3.png')),
+    ExploreScreen(),
+    RecipeScreen(),
+    Container(color: Colors.blue),
+    // Card1(
+    //     recipe: ExploreRecipe(
+    //         authorName: 'Ray Wenderlich',
+    //         title: 'The Art of Dough',
+    //         subtitle: 'Editor\'s Choice',
+    //         message: 'Learn to make the perfect bread.',
+    //         backgroundImage: 'assets/magazine_pics/card_bread.jpg')),
+    // Card2(
+    //     recipe: ExploreRecipe(
+    //         authorName: 'Mike Katz',
+    //         role: 'Smoothie Connoisseur',
+    //         profileImage: 'assets/profile_pics/person_katz.jpeg',
+    //         title: 'Recipe',
+    //         subtitle: 'Smoothies',
+    //         backgroundImage: 'assets/magazine_pics/mag2.png')),
+    // Card3(
+    //     recipe: ExploreRecipe(
+    //         title: 'Vegan Trends',
+    //         tags: [
+    //           'Healthy',
+    //           'Vegan',
+    //           'Carrots',
+    //           'Greens',
+    //           'Wheat',
+    //           'Pescetarian',
+    //           'Mint',
+    //           'Lemongrass',
+    //           'Salad',
+    //           'Water'
+    //         ],
+    //         backgroundImage: 'assets/magazine_pics/mag3.png')),
   ];
 
   void _onItemTapped(int index) {
@@ -56,6 +59,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          centerTitle: true,
             title: Text('Fooderlich',
                 style: Theme.of(context).textTheme.headline6)),
         body: pages[_selectedIndex],
@@ -66,11 +70,11 @@ class _HomeState extends State<Home> {
             onTap: _onItemTapped,
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                  icon: Icon(Icons.card_giftcard), label: 'Card'),
+                  icon: Icon(Icons.explore), label: 'Explore'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.card_giftcard), label: 'Card2'),
+                  icon: Icon(Icons.book), label: 'Recipes'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.card_giftcard), label: 'Card3'),
+                  icon: Icon(Icons.list), label: 'To Buy'),
             ]));
   }
 }
