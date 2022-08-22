@@ -4,7 +4,7 @@ import '../components/components.dart';
 import '../models/models.dart';
 
 class ExploreScreen extends StatefulWidget{
-  ExploreScreen({Key? key}):super(key: key);
+  const ExploreScreen({Key? key}):super(key: key);
 
   @override
   _ExploreScreenState createState() => _ExploreScreenState();
