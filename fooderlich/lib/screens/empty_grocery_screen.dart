@@ -31,14 +31,14 @@ class EmptyGroceryScreen extends StatelessWidget{
             ),
             MaterialButton(
               textColor: Colors.white,
-              child: const Text('Browse Recipes'),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30.0),
               ),
               color: Colors.green,
               onPressed: (){
                 Provider.of<TabManager>(context, listen: false).goToRecipes();
-              }
+              },
+              child: const Text('Browse Recipes')
             ),
           ],
         ),
